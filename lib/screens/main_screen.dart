@@ -32,7 +32,7 @@ class _MainScreenState extends State<MainScreen> {
   String chatUsername;
   void getChatUsername(chatUserId) async {
     chatUsername = await databaseMethods.getUserByUserId(chatUserId);
-    print('$chatUsername <<<<<<<<<<<<<<<<<<<<<<==============================');
+    setState(() {});
   }
 
   @override

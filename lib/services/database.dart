@@ -61,16 +61,6 @@ class DatabaseMethods with ChangeNotifier {
     return currentUserName;
   }
 
-  createChatRoom(String chatroomId, chatroomMap) {
-    Firestore.instance
-        .collection('chatroom')
-        .document(chatroomId)
-        .setData(chatroomMap)
-        .catchError((e) {
-      print(e);
-    });
-  }
-
   addConversationMessages(String chatroomId, messageMap) {
     Firestore.instance
         .collection('chatroom')
@@ -92,6 +82,16 @@ class DatabaseMethods with ChangeNotifier {
           descending: true,
         )
         .snapshots();
+  }
+
+  createChatRoom(String chatroomId, chatroomMap) {
+    Firestore.instance
+        .collection('chatroom')
+        .document(chatroomId)
+        .setData(chatroomMap)
+        .catchError((e) {
+      print(e);
+    });
   }
 
   getChatRooms(String userId) {
