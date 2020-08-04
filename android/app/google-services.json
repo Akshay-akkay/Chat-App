@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "85204015884",
+    "firebase_url": "https://akkay-chat.firebaseio.com",
+    "project_id": "akkay-chat",
+    "storage_bucket": "akkay-chat.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:85204015884:android:310763984d9f90fd150729",
+        "android_client_info": {
+          "package_name": "com.akkay.akkay_chat_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "85204015884-tsceio13p7509bim5qcq9qpu9hbj17ot.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBG7O3OnrDZwlYPckdk3eoW8B3a_TzOyA0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "85204015884-tsceio13p7509bim5qcq9qpu9hbj17ot.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
