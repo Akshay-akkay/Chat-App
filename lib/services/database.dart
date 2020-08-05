@@ -24,9 +24,12 @@ class DatabaseMethods with ChangeNotifier {
 
   getUserByUserId(String userId) async {
     String chatusername;
-    var chatUserData =
-        await Firestore.instance.collection('users').document(userId).get();
-    chatusername = chatUserData['username'];
+    await Firestore.instance
+        .collection('users')
+        .document(userId)
+        .get()
+        .then((value) => chatusername = value['username']);
+    // chatusername = chatUserData['username'];
     return chatusername;
   }
 

@@ -1,3 +1,4 @@
+import 'package:akkay_chat_app/screens/chat_screen.dart';
 import 'package:akkay_chat_app/screens/profile_screen.dart';
 import 'package:akkay_chat_app/screens/search_screen.dart';
 import 'package:akkay_chat_app/services/database.dart';
@@ -63,6 +64,7 @@ class _MainScreenState extends State<MainScreen> {
         ],
       ),
       body: StreamBuilder(
+        key: UniqueKey(),
         stream: chatRoomsStream,
         builder: (ctx, snapshot) {
           return ListView.builder(
@@ -73,14 +75,26 @@ class _MainScreenState extends State<MainScreen> {
                   .replaceAll('_', "")
                   .replaceAll(myUserId, '');
               getChatUsername(chatUserId);
-              return ListTile(
-                leading: CircleAvatar(
-                  backgroundImage: NetworkImage(
-                      'https://firebasestorage.googleapis.com/v0/b/akkay-chat.appspot.com/o/user_image%2FGSPLfA7ZrMMVvCMbCI2wJzTUdon2.jpg?alt=media&token=fd7408f4-2991-49a9-a153-0b79beef89c8'),
+              return InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (ctx) => ChatScreen(snapshot
+                          .data.documents[i].data['chatroomId']
+                          .toString()),
+                    ),
+                  );
+                },
+                child: ListTile(
+                  leading: CircleAvatar(
+                    backgroundImage: NetworkImage(
+                        'https://firebasestorage.googleapis.com/v0/b/akkay-chat.appspot.com/o/user_image%2FGSPLfA7ZrMMVvCMbCI2wJzTUdon2.jpg?alt=media&token=fd7408f4-2991-49a9-a153-0b79beef89c8'),
+                  ),
+                  title: Text(chatUsername != null ? chatUsername : 'nullllll'),
+                  subtitle: null,
+                  trailing: null,
                 ),
-                title: Text(chatUsername != null ? chatUsername : 'nullllll'),
-                subtitle: null,
-                trailing: null,
               );
             },
           );
